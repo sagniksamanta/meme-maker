@@ -43,7 +43,7 @@ const Signup = ()=> {
                    <input type="text" name="password" class="form-control"/>
                </div>
 
-               <button class="btn btn-primary" style={{"margin":"5px"}}> <AccessibilityNewIcon/>  Login</button>
+               <button class="btn btn-primary" style={{"margin":"5px"}}> <AccessibilityNewIcon/>  Sign Up </button>
            <div class="transfer">
            <p>Already have an Account  ?</p>
            <NavLink class="signup" to="../login">Sign up?</NavLink>
