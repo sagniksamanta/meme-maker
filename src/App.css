@@ -36,3 +36,148 @@
     transform: rotate(360deg);
   }
 }
+
+
+/************************  NAV BAR    **************************/
+.navbar{
+  background-color: #000000;
+  height: 100px;
+}
+#meme{
+  color: snow;
+  margin-right: 50px;
+}
+.nav-link{
+  color: white;
+  text-shadow: 2px 2px 3px black;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 22px;
+}
+#nav_btn{
+  color: snow;
+}
+
+#login{
+  color: rgb(11, 219, 219);
+  
+}
+
+#reg{
+  color: rgb(11, 219, 219);
+  
+}
+
+
+/*********************** body   ****************/
+.main_div{
+  margin-top: 40px;
+  text-align: center;
+}
+.card_div{
+  margin-top: 40px;
+  display: flex;
+  width: 100%;
+}
+
+.card{
+margin-left: 40px;
+}
+
+
+
+
+/************************* footer ***************************/
+.body{
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.footer_div{
+  width: 100%;
+  height: 50px;
+  background-color: #000000;
+  margin-top: auto;
+ 
+}
+.footer_div p{
+  color: snow;
+  text-align: center;
+  justify-content: center;
+}
+
+
+/************************ Log in page ***********/
+h1{
+  color:black;
+  opacity: 0.6;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+i{
+  color: gray;
+  width: auto;
+  size: 10px;
+  margin: auto;
+  margin-right: 10px;
+  
+}
+.container{
+  height: auto;
+  width: 350px;
+  background-color:#99ddff;
+  border-radius: 15px;
+}
+div.form-group{
+  margin-top: 5px;
+}
+.form-group label{
+  margin: 5px;
+  font-size: 14px;
+}
+
+form{
+  margin-top: 5px;
+  height: 450px;
+}
+.transfer{
+margin-left: 3px;
+margin-bottom: 10px;
+}
+.btnregister{
+  margin-top: 5px;
+  padding: 5px;
+  text-align: center;
+  background-color: #0099ff;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  margin: 4px;
+  cursor: pointer;
+}
+.transfer a{
+  margin: 5px;
+  color: #0099ff;
+}
+
+
+/************** sign up ************/
+
+/* .container_signup{
+  height: 100%;
+  width: 400px;
+  background-color:#99ddff;
+  border-radius: 15px;
+
+} */
+
+
+
+
+
+
+
+
+
