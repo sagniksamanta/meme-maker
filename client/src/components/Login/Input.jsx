@@ -4,7 +4,6 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 const Input = (props) => {
-    console.log("type: ", props.type);
     return (
         <Grid item xs={12} sm={props.half ? 6 : 12}>
             <TextField

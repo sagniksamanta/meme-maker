@@ -26,7 +26,7 @@ const Copyright = () => {
 
 const theme = createTheme();
 
-const Home = () => {
+const Dashboard = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -40,18 +40,8 @@ const Home = () => {
           }}
         >
           <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="text.primary"
-              gutterBottom
-            >
-              Meme Maker App
-            </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              Make your own customisable meme here and add it to your profile.
-              Log In to get started.
+              Add more meme to your Dashboard.
             </Typography>
             <Stack
               sx={{ pt: 4 }}
@@ -59,7 +49,7 @@ const Home = () => {
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained" component={Link} to="/login">Sign In</Button>
+              <Button variant="contained" component={Link} to="/template">Click here</Button>
             </Stack>
           </Container>
         </Box>
@@ -98,4 +88,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default Dashboard;
