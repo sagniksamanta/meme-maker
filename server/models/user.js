@@ -17,6 +17,10 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    memeData: {
+        type: [String],
+        default: []
+    }
 });
 
 const UsersMeme = mongoose.model('UsersMeme', userSchema);

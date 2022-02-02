@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
@@ -8,9 +8,12 @@ import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { Link } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import cards from '../../image/staticMemeimg';
+// import cards from '../../image/staticMemeimg';
+import FileBase64 from 'react-file-base64';
+import { useDispatch, useSelector } from 'react-redux';
+import { submitMeme, getmemeData } from '../actions/memeFile';
+
 const Copyright = () => {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -25,8 +28,28 @@ const Copyright = () => {
 }
 
 const theme = createTheme();
-
+const initialData = {file: '', id: ''};
 const Dashboard = () => {
+
+  const [data, setData] = useState(initialData);
+  const dispatch = useDispatch();
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  const MemeData = useSelector((state) => state.memeReducer);
+  const images = MemeData[0]?.memeData;
+
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem('profile')));
+    if(user.result._id)
+    dispatch(getmemeData(user.result._id));
+  },[dispatch]);
+
+  const handleSubmit = () => {
+    dispatch(submitMeme(data));
+    setData({
+      file: '', id: ''
+    });
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -49,15 +72,21 @@ const Dashboard = () => {
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained" component={Link} to="/template">Click here</Button>
+            {/* add a functionality to upload a picture */}
+              <FileBase64 
+                type="file"
+                multiple = {false}
+                onDone={({base64}) => setData({...data,id: user.result._id, file: base64})}
+              />
+              <Button variant="contained" onClick={handleSubmit}>Upload</Button>
             </Stack>
           </Container>
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card.id} xs={12} sm={6} md={4}>
+            {images.map((card) => (
+              <Grid item key={Math.random()} xs={12} sm={6} md={4}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
@@ -67,7 +96,7 @@ const Dashboard = () => {
                       // 16:9
                       pt: '56.25%',
                     }}
-                    image={card.imageUrl}
+                    image={card}
                     alt="random"
                   />
                 </Card>
