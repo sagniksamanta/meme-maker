@@ -112,6 +112,14 @@ h1{
   color:black;
   opacity: 0.6;
   text-align: center;
+  margin-top: 100px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+h2{
+  color:black;
+  opacity: 0.8;
+  text-align: center;
   margin-top: 50px;
   margin-bottom: 10px;
   text-transform: uppercase;
@@ -172,6 +180,53 @@ margin-bottom: 10px;
   border-radius: 15px;
 
 } */
+
+
+
+
+/**************** user nav ******************/
+
+.user_nav{
+  min-height: 100px;
+  display: flex;
+  line-height: 93px;
+  justify-content: space-around;
+  background-color: #000000;
+
+}
+
+.user_nav bt{
+  margin-right: 30px;
+}
+
+.c_div{
+  text-align: center;
+  justify-content: center;
+}
+
+/************************* meme card **************************/
+
+.memeCard{
+  margin-top: 20px;
+  margin-left: 38%;
+  width: 350px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
