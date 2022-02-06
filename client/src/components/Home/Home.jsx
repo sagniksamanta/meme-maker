@@ -10,7 +10,6 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { Link } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import cards from '../../image/staticMemeimg';
 const Copyright = () => {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -65,8 +64,8 @@ const Home = () => {
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
-          <Grid container spacing={4}>
-            {cards.map((card) => (
+          <Grid container spacing={4}><h1>working</h1>
+            {/* {cards.map((card) => (
               <Grid item key={card.id} xs={12} sm={6} md={4}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
@@ -82,7 +81,7 @@ const Home = () => {
                   />
                 </Card>
               </Grid>
-            ))}
+            ))} */}
           </Grid>
         </Container>
       </main>

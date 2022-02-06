@@ -9,10 +9,11 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-// import cards from '../../image/staticMemeimg';
 import FileBase64 from 'react-file-base64';
 import { useDispatch, useSelector } from 'react-redux';
 import { submitMeme, getmemeData } from '../actions/memeFile';
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 const Copyright = () => {
   return (
@@ -28,7 +29,7 @@ const Copyright = () => {
 }
 
 const theme = createTheme();
-const initialData = {file: '', id: ''};
+const initialData = { file: '', id: '' };
 const Dashboard = () => {
 
   const [data, setData] = useState(initialData);
@@ -36,12 +37,13 @@ const Dashboard = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
   const MemeData = useSelector((state) => state.memeReducer);
   const images = MemeData[0]?.memeData;
-
+  console.log(images);
+  
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem('profile')));
-    if(user.result._id)
-    dispatch(getmemeData(user.result._id));
-  },[dispatch]);
+    if (user.result._id)
+      dispatch(getmemeData(user.result._id));
+  }, [dispatch]);
 
   const handleSubmit = () => {
     dispatch(submitMeme(data));
@@ -72,11 +74,11 @@ const Dashboard = () => {
               spacing={2}
               justifyContent="center"
             >
-            {/* add a functionality to upload a picture */}
-              <FileBase64 
+              {/* add a functionality to upload a picture */}
+              <FileBase64
                 type="file"
-                multiple = {false}
-                onDone={({base64}) => setData({...data,id: user.result._id, file: base64})}
+                multiple={false}
+                onDone={({ base64 }) => setData({ ...data, id: user.result._id, file: base64 })}
               />
               <Button variant="contained" onClick={handleSubmit}>Upload</Button>
             </Stack>
@@ -84,25 +86,34 @@ const Dashboard = () => {
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
-          <Grid container spacing={4}>
-            {images.map((card) => (
-              <Grid item key={Math.random()} xs={12} sm={6} md={4}>
-                <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-                >
-                  <CardMedia
-                    component="img"
-                    sx={{
-                      // 16:9
-                      pt: '56.25%',
-                    }}
-                    image={card}
-                    alt="random"
-                  />
-                </Card>
+
+          {
+            !images ? (
+              <Box sx={{ display: 'flex' }}>
+                <CircularProgress />
+              </Box>
+            ) : images.length === 0 ? <h1>No meme exists..Please add or upload to see memes in your dashboard</h1> : (
+              <Grid container spacing={4}>
+                {images.map((card) => (
+                  <Grid item key={Math.random()} xs={12} sm={6} md={4}>
+                    <Card
+                      sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                    >
+                      <CardMedia
+                        component="img"
+                        sx={{
+                          // 16:9
+                          pt: '56.25%',
+                        }}
+                        image={card}
+                        alt="random"
+                      />
+                    </Card>
+                  </Grid>
+                ))}
               </Grid>
-            ))}
-          </Grid>
+            )
+          }
         </Container>
       </main>
       {/* Footer */}
