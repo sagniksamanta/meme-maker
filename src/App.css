@@ -220,7 +220,14 @@ margin-bottom: 10px;
 
 
 
+/***************** canvas *******************/
 
+canvas{
+  border: 1px solid black;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
 
 
 

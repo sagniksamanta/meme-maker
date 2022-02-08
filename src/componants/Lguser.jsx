@@ -35,6 +35,9 @@ const Lguser = (props) => {
                   <NavLink to="/meme_templates">
                   <button type="button" class="btn btn-outline-success"> Meme Templates </button>
                   </NavLink> 
+                  <NavLink to="/canvas">
+                  <button type="button" class="btn btn-outline-success"> canvas </button>
+                  </NavLink> 
                   
                   <NavLink to="/">
                   <button type="button" onClick = {props.fun} class="btn btn-outline-danger" style={{"marginLeft" : "800px"}}>  Log Out </button>

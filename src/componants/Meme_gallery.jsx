@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 
 
 
+
 const fun = (val)=>{
     //console.log(val);
 return (<Memes
@@ -43,7 +44,7 @@ const Meme_gallery = () => {
         const moreMemes = data.image;
         setMemes(moreMemes);
     
-    })
+    },[])
     
     console.log(memes);
     return (
@@ -51,6 +52,7 @@ const Meme_gallery = () => {
         <div className="body">
             <Lguser />
             <h1>This is our meme gallery  page </h1>
+           
            {
              memes.map(fun)
            }

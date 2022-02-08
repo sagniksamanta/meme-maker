@@ -10,6 +10,7 @@ import Signup from './componants/Signup';
 import User from './componants/User';
 import Meme_gallery from './componants/Meme_gallery';
 import Meme_templates from './componants/Meme_templates';
+import Canvas from './componants/Canvas';
 import { Routes , Route } from 'react-router-dom';
 
 
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/user" element={<User/>}/>
           <Route exact path="/meme_gallery" element={<Meme_gallery/>}/>
           <Route exact path="/meme_templates" element={<Meme_templates/>}/>
+          <Route exact path="/canvas" element={<Canvas/>}/>
           
     </Routes>
     
